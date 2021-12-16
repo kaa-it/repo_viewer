@@ -143,8 +143,8 @@ class GithubAuthenticator {
       return right(refreshedCredentials);
     } on FormatException {
       return left(const AuthFailure.server());
-    } on AuthorizationException catch(e) {
-      return left(AuthFailure.server('${e.error}: ${e.description}'))
+    } on AuthorizationException catch (e) {
+      return left(AuthFailure.server('${e.error}: ${e.description}'));
     } on PlatformException {
       return left(const AuthFailure.storage());
     }
